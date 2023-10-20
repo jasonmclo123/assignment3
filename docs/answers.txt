@@ -1,1 +1,187 @@
+Did tutorials on 10/17/23
+Installed Git and Github on 10/20/23
+
+
+**********************************************************
+Github Link: https://github.com/jasonmclo123/assignment3
+**********************************************************
+
+
+*** Tutorials/Command Testing Results Shown Below.
+*** Question 5 Results Are Further Down.
+
+
+************************************************************************************
+Learn Git Branching - Some Notable Commands/Topics from Both Levels:
+
+Did multiple levels for main introduction sequence
+1) git commit, entered twice
+2) git checkout -b bugFix
+3) git merge bugFix with main
+4) git rebase main
+5) HEAD changing, git checkout c4
+
+Push and Pull -- Git Remotes had twice as many levels
+1) git clone
+2) git checkout main, and git checkout c1
+3) git fetch and git pull
+4) git push
+5) diverging history, git pull --rebase
+6) remote rejected, git checkout -b feature
+
+- Only showed notable commands because printing everything I did out
+would take up way too much space.
+
+
+
+Visualizing git results:
+
+1) > e137e9b first commit
+2) new commit added, head and master change location
+3) new commit added, head and master change location
+4) same as 3 and 4, except this one's called "third"
+5) dev added to location of head and master
+6) new commit added: dev stays in former location, master and head move to new
+7) head moves back to dev
+8) new commit, separate from master, added with head/dev
+9) new commit added to 8's commit
+10) same as 9
+11) log shows as follows:
+	> b3b8f4e (no message)
+	> 9916232 (no message)
+	> 5d63c2c (no message)
+	> 686cf54 third
+	> bc49d98 (no message)
+	> 70e36a3 (no message)
+	> e137e9b first commit
+12) newFeature added to head/dev
+13) head/dev linked to master, after splitting off from newFeature
+14) commit added to head/dev's former position, head/dev moved to commit's new position
+
+
+try.github.io:
+
+This link led to https://docs.github.com/en/get-started/quickstart/set-up-git
+I read through it, especially the parts listed below:
+- Creating a repository
+- Forking a repository
+- Managing files
+- Being social
+
+The first three (aside from "Being Social") were a great help for this assignment. They
+discussed many things regarding setting up the repository, forking it over, and handling
+files in the repository. 
+
+However, there was no tutorial that I saw. I instead went to:
+https://es.atlassian.com/git/tutorials/
+
+This was linked in the workflows pdf linked in the assignment page. From this git 
+tutorial page, I selected the "adding changes" tutorial, found at:
+https://www.atlassian.com/es/git/tutorials/saving-changes
+
+In this, it discusses saving changes through add and push commands. I found this one
+very useful; I particularly used git push -u origin main for pushing to Github.
+*****************************************************************************************
+
+
+
+*** Setup #4: Cloning the forked repository to my local machine worked.
+I have an assignment3 repository stored as a folder on my local machine, and 
+this was accomplished through this command: 
+git clone https://github.com/jasonmclo123/assignment3.git
+
+Fork proof is shown in my github, linked at the top of this file.
+
+
+
+----------------------- Question 5 Responses ------------------------------
+
+1) 
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 709 bytes | 709.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/jasonmclo123/assignment3.git
+   3157f37..f2a11f3  master -> master
+branch 'master' set up to track 'origin/master'.
+
+
+2)
+14, as of entering this command. This is prior to adding all of this to answers.txt
+and committing these changes. Shows 15 after adding everything to answers.txt .
+The command used, referenced from https://git-scm.com/docs/git-rev-list 
+and git rev-list --help, was: git rev-list --count --all.
+
+
+3)
+Results from the command "git log README.md" which show commit times:
+
+commit 3157f37c76004e18af54ade0199bae68b805dfc4
+Author: jasonmclo123 <148583371+jasonmclo123@users.noreply.github.com>
+Date:   Fri Oct 20 15:19:55 2023 -0400
+
+commit f4975e5d56ff331762b318bfd12c5236e0299f25
+Author: Esteban Parra <estebanpr014@gmail.com>
+Date:   Wed Sep 25 18:33:08 2019 -0400
+
+
+4) 
+Reading from https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell , 
+or "Git Branching - Branches in a Nutshell", two reasons branches are used are:
+
+- branches allow for work on development diverged from the main development line,
+which prevents the main line from getting potential faults or unwanted changes.
+- they also allow for quickly and easily dividing development workloads amongst many people. This is good for many things such as organizing workloads effectively per person, improving the overall development process.
+
+
+5) 
+Looking at the help pages for status and log:
+- git status shows the working tree status
+- git log shows the commit logs
+
+
+6)
+git log --follow Vehicle.h , found from the linked workflows and resources pdf.
+
+
+7)
+git log --grep="file" , again referenced from workflows and resources pdf.
+
+
+8)
+I. Inheritance is the practice of derived classes, where one class is derived from a 
+parent class. The derived class inherits many properties from the parent class.
+
+II. Polymorphism is where an object can take on many forms. It is often practiced with 
+inheritance.
+
+III. Encapsulation is the practice of organizing code, such as functions, in a way that hides
+implementation of said code. It divides up the code, making it more organized and harder to 
+figure out a single block's function.
+
+
+9)
+The Integration Manager Workflow allows for all developers to push to their public repositories, 
+and pull from the central repository. Integration conflict resolution is handled by the integration
+manager.
+
+The Dictator and Lieutenants Workflow has only one central repository. There are no individual repositories for developers, nor are there pull/push options for said repositories. Lieutenant repositories are where developers push, and these are reviewed by the dictator before they push 
+to the central repository.
+
+
+10)
+The Dictator and Lieutenants Workflow has more efficient review than the Centralized Workflow.
+Rather than 100 developers spending time resolving conflicts, lieutenant repositories
+break the code down into smaller, easier to analyze parts. It also organizes pull requests
+and repositories in a more workable manner. 100 developers pulling from the central repository
+would be hard to manage compared to lieutenant repositories, which again break down and organize
+the development load. 
+
+In short, it breaks the 100 down into teams/parts, increasing efficiency/reviewability and improving
+organization. 
+
+
 
